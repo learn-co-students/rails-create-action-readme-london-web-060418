@@ -10,4 +10,17 @@ class PostsController < ApplicationController
 	def new
 		@post = Post.new
 	end
+
+  def create
+    #Why are we using instance variables?
+    @post=Post.new
+    @post.title=params[:title]
+    @post.description=params[:description]
+    @post.save
+    redirect_to posts_path(@post)
+  end
+
+
+
+
 end
